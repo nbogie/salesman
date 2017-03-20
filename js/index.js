@@ -47,7 +47,7 @@ function randomise() {
   mundaneWords = partition[1];
   
   cust = _.sample(gCustomers);
-  words = _.sample(mundaneWords, 5).concat(_.sample(interestingWords, 1));
+  words = _.sample(gWords, 5).concat(_.sample(interestingWords, 1));
   var i = 0;
   for (i = 0; i < 6; i++) {
     var w = words[i];
