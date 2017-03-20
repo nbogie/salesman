@@ -27,7 +27,7 @@ function handleResponse(data, tabletop) {
 }
 
 function classForPack(packName, defaultClass) {
-  alloweds = "original exp1 exp2 rpgnet".split(' ');
+  alloweds = "original exp1 exp2 rpgnet neill".split(' ');
   var ix = alloweds.indexOf(packName);
   return (ix >= 0) ? alloweds[ix] : defaultClass;
 }
@@ -37,12 +37,17 @@ function randomise() {
   setName = $('#set-select').val();  
   function getSet(packName) {
     return  _.filter(gWords, function(entry){ 
-      return entry.pack == packName; 
+      return entry.pack == packName;
     });
   }
-
+  partition = _.partition(gWords, function(entry){ 
+    return entry.interesting == "y";
+  });
+  interestingWords = partition[0];
+  mundaneWords = partition[1];
+  
   cust = _.sample(gCustomers);
-  words = _.sample(gWords, 6);
+  words = _.sample(mundaneWords, 5).concat(_.sample(interestingWords, 1));
   var i = 0;
   for (i = 0; i < 6; i++) {
     var w = words[i];
