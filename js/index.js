@@ -27,7 +27,7 @@ function handleResponse(data, tabletop) {
 }
 
 function classForPack(packName, defaultClass) {
-  alloweds = "original exp1 exp2 rpgnet neill".split(' ');
+  alloweds = "original exp1 exp2 rpgnet idea neill".split(' ');
   var ix = alloweds.indexOf(packName);
   return (ix >= 0) ? alloweds[ix] : defaultClass;
 }
